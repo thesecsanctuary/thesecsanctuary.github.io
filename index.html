@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Joseph Adeniji Portfolio</title>
+<meta name="description" content="Joseph Olamilekan Adeniji, MSc Cyber Security student at the University of Surrey, looking for a 12-month information security placement from July 2027.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F6F8FB;
+    --surface: #FFFFFF;
+    --ink: #18212D;
+    --muted: #5A6577;
+    --line: #DCE2EA;
+    --accent: #1A365D;
+    --accent-soft: #E6EDF6;
+    --font-body: "IBM Plex Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0E141D;
+      --surface: #151D29;
+      --ink: #E5EAF1;
+      --muted: #9AA6B7;
+      --line: #263142;
+      --accent: #93B6E6;
+      --accent-soft: #1C2A3E;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0E141D;
+    --surface: #151D29;
+    --ink: #E5EAF1;
+    --muted: #9AA6B7;
+    --line: #263142;
+    --accent: #93B6E6;
+    --accent-soft: #1C2A3E;
+    color-scheme: dark;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px; }
+
+  header.hero { border-top: 4px solid var(--accent); padding: 56px 0 40px; }
+  .eyebrow {
+    font-family: var(--font-mono); font-size: 13px; color: var(--muted);
+    display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 0 0 18px;
+  }
+  .eyebrow .status { color: var(--accent); }
+  .eyebrow .status::before {
+    content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+    background: currentColor; margin-right: 8px; vertical-align: 1px;
+  }
+  h1 {
+    font-size: clamp(32px, 6vw, 48px); line-height: 1.1; font-weight: 700;
+    letter-spacing: -0.02em; margin: 0 0 14px; text-wrap: balance;
+  }
+  .lede { font-size: 19px; color: var(--muted); max-width: 60ch; margin: 0 0 26px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font: 500 15px/1 var(--font-body); text-decoration: none;
+    padding: 12px 18px; border-radius: 8px; border: 1px solid var(--accent);
+  }
+  .btn.primary { background: var(--accent); color: var(--bg); }
+  .btn.secondary { color: var(--accent); background: transparent; }
+  .email-text { font-family: var(--font-mono); font-size: 14px; color: var(--muted); }
+
+  section { border-top: 1px solid var(--line); padding: 36px 0; display: grid; gap: 14px; }
+  @media (min-width: 760px) {
+    section { grid-template-columns: 170px 1fr; gap: 32px; }
+  }
+  h2 {
+    font-family: var(--font-mono); font-size: 13px; font-weight: 500; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--accent); margin: 4px 0 0;
+  }
+  .body > p { margin: 0 0 14px; max-width: 65ch; }
+  .body > p:last-child { margin-bottom: 0; }
+
+  .now { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+  .now li {
+    background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent);
+    border-radius: 6px; padding: 12px 16px; display: grid; gap: 2px;
+  }
+  .now .k { font-family: var(--font-mono); font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
+  .entries { display: grid; gap: 26px; }
+  .entry h3 { font-size: 18px; font-weight: 600; margin: 0; line-height: 1.35; }
+  .entry .where { color: var(--muted); margin: 2px 0 0; }
+  .entry .when {
+    font-family: var(--font-mono); font-size: 13px; color: var(--muted);
+    font-variant-numeric: tabular-nums; margin: 2px 0 8px;
+  }
+  .entry ul { margin: 0; padding-left: 20px; max-width: 65ch; }
+  .entry li { margin-bottom: 4px; }
+  .entry p.note { margin: 0; max-width: 65ch; }
+  .tag-inline {
+    font-family: var(--font-mono); font-size: 12px; color: var(--accent); background: var(--accent-soft);
+    padding: 2px 8px; border-radius: 4px; margin-left: 6px; white-space: nowrap; vertical-align: 2px;
+  }
+
+  .skills { display: grid; gap: 18px; }
+  .skills h3 { font-size: 15px; font-weight: 600; margin: 0 0 8px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+  .chips li {
+    font-size: 14px; background: var(--surface); border: 1px solid var(--line);
+    border-radius: 999px; padding: 5px 12px;
+  }
+
+  footer { border-top: 1px solid var(--line); padding: 24px 0 48px; color: var(--muted); font-size: 14px; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <p class="eyebrow">
+        <span class="status">Open to a placement from July 2027</span>
+        <span>Guildford, UK</span>
+      </p>
+      <h1>Joseph Olamilekan Adeniji</h1>
+      <p class="lede">MSc Cyber Security student at the University of Surrey, looking for a 12-month information security placement.</p>
+      <div class="actions">
+        <a class="btn primary" href="mailto:sephniji@gmail.com">Email me</a>
+        <a class="btn secondary" href="Adeniji_Joseph_CV_NEXT.pdf">View my CV</a>
+        <a class="btn secondary" href="https://github.com/thesecsanctuary">GitHub</a>
+        <span class="email-text">sephniji@gmail.com</span>
+      </div>
+    </header>
+
+    <main>
+      <section aria-labelledby="about">
+        <h2 id="about">About</h2>
+        <div class="body">
+          <p>I am a cyber security master's student at the University of Surrey. Before moving to the UK, I studied engineering in Nigeria, completed MIT xPRO's full-stack development certificate, and worked in roles where I handled restricted documents, monitored networks and checked how sensitive data was being handled.</p>
+          <p>The part of security I want to work in is defence: watching for threats, investigating incidents and helping systems recover. My course includes a 12-month placement year, and I am looking for a team where I can learn that work properly.</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="now">
+        <h2 id="now">Right now</h2>
+        <ul class="now">
+          <li><span class="k">Studying</span><span>Architectural Thinking for Security, Cryptography, Digital Forensics, and Secure Systems and Applications</span></li>
+          <li><span class="k">Practising</span><span>TryHackMe's Cyber Security 101 path, alongside my course</span></li>
+          <li><span class="k">Looking for</span><span>A 12-month information security placement, July 2027 to July 2028</span></li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="experience">
+        <h2 id="experience">Experience</h2>
+        <div class="entries">
+          <div class="entry">
+            <h3>Technical IT Assistant</h3>
+            <p class="where">Adeq Integrated Hydrogeophysical and Drilling Services, Nigeria</p>
+            <p class="when">Jul 2025 – Aug 2026</p>
+            <p class="note">Checked how information moved around the company to make sure confidential and personal data was handled properly.</p>
+          </div>
+          <div class="entry">
+            <h3>Data &amp; Assets Officer</h3>
+            <p class="where">Nigeria Electricity Liability Management (National Youth Service)</p>
+            <p class="when">May 2022 – May 2023</p>
+            <ul>
+              <li>Carried out network monitoring and managed the secure scanning, indexing and archiving of restricted documents.</li>
+              <li>Used Excel to cross-reference, audit and reconcile high-value legacy financial claims.</li>
+              <li>Supervised the move of physical and digital assets to new offices, with no data lost.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="education">
+        <h2 id="education">Education &amp; training</h2>
+        <div class="entries">
+          <div class="entry">
+            <h3>MSc Cyber Security with Professional Postgraduate Year</h3>
+            <p class="where">University of Surrey, Guildford</p>
+            <p class="when">2026 – 2028 (expected)</p>
+            <p class="note">Includes a 12-month professional placement year.</p>
+          </div>
+          <div class="entry">
+            <h3>Cyber Security 101 <span class="tag-inline">In progress</span></h3>
+            <p class="where">TryHackMe</p>
+            <p class="note">Hands-on labs covering networking, cryptography, Linux, Windows and Active Directory, and offensive and defensive security tools.</p>
+          </div>
+          <div class="entry">
+            <h3>Professional Certificate in Coding: Full-Stack Development</h3>
+            <p class="where">MIT xPRO (online)</p>
+            <p class="when">May 2024</p>
+            <p class="note">Python, systems architecture, data security, encryption and backend frameworks.</p>
+          </div>
+          <div class="entry">
+            <h3>Bachelor of Engineering</h3>
+            <p class="where">Kwara State University, Ilorin, Nigeria</p>
+            <p class="when">2023 – 2025</p>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="skills">
+        <h2 id="skills">Skills</h2>
+        <div class="skills">
+          <div>
+            <h3>Security</h3>
+            <ul class="chips">
+              <li>Cryptography and encryption principles</li>
+              <li>Network monitoring</li>
+              <li>Data protection</li>
+              <li>Confidentiality and privacy compliance</li>
+              <li>Secure digital archiving</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Technical</h3>
+            <ul class="chips">
+              <li>Python</li>
+              <li>Systems architecture</li>
+              <li>Secure systems design</li>
+              <li>Systems migration</li>
+              <li>Full-stack development principles</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Data and reporting</h3>
+            <ul class="chips">
+              <li>Microsoft Excel (auditing and cross-referencing)</li>
+              <li>Data reconciliation</li>
+              <li>Data integrity</li>
+              <li>Technical reporting</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="contact">
+        <h2 id="contact">Contact</h2>
+        <div class="body">
+          <p>The best way to reach me is by email at <a href="mailto:sephniji@gmail.com">sephniji@gmail.com</a>.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>Joseph Olamilekan Adeniji · Guildford, UK</footer>
+  </div>
+</body>
+</html>
+```
