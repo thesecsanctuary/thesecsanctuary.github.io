@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -113,6 +112,7 @@
   .entry ul { margin: 0; padding-left: 20px; max-width: 65ch; }
   .entry li { margin-bottom: 4px; }
   .entry p.note { margin: 0; max-width: 65ch; }
+  .entry p.note + p.note { margin-top: 10px; }
   .tag-inline {
     font-family: var(--font-mono); font-size: 12px; color: var(--accent); background: var(--accent-soft);
     padding: 2px 8px; border-radius: 4px; margin-left: 6px; white-space: nowrap; vertical-align: 2px;
@@ -143,7 +143,7 @@
       <div class="actions">
         <a class="btn primary" href="mailto:sephniji@gmail.com">Email me</a>
         <a class="btn secondary" href="Adeniji_Joseph_CV_NEXT.pdf">View my CV</a>
-        <a class="btn secondary" href="https://github.com/thesecsanctuary">GitHub</a>
+        <a class="btn secondary" href="https://github.com/Jophizz">GitHub</a>
         <span class="email-text">sephniji@gmail.com</span>
       </div>
     </header>
@@ -164,6 +164,19 @@
           <li><span class="k">Practising</span><span>TryHackMe's Cyber Security 101 path, alongside my course</span></li>
           <li><span class="k">Looking for</span><span>A 12-month information security placement, July 2027 to July 2028</span></li>
         </ul>
+      </section>
+
+      <section aria-labelledby="projects">
+        <h2 id="projects">Projects</h2>
+        <div class="entries">
+          <div class="entry">
+            <h3>Joe Bank: reviewing my own banking app for security</h3>
+            <p class="where">React, Node.js, Express, MongoDB, Docker</p>
+            <p class="when">Built 2024 · Reviewed Nov 2026</p>
+            <p class="note">A full-stack banking app I built during my MIT xPRO course, with sign-up, login, deposits, withdrawals, cheque deposits by photo and transaction history. Passwords are hashed with bcrypt and private pages need a login token. Coming back to it as a cyber security student, I found that the secret key used to sign login tokens had been published in the code on GitHub. I moved it into an environment variable and wrote up what I would fix next, such as limiting repeated login attempts and shortening login sessions.</p>
+            <p class="note"><a href="https://github.com/Jophizz/joe-bank">See the code and my security notes on GitHub</a></p>
+          </div>
+        </div>
       </section>
 
       <section aria-labelledby="experience">
@@ -263,4 +276,4 @@
   </div>
 </body>
 </html>
-```
+
